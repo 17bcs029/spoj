@@ -10,17 +10,21 @@ int ar[50010];
 //since every leaf node will have the same prefix,suffix sum and answer !
 void leaf(int a,int b)
 {
+
     seg[a].pre=ar[b];
     seg[a].suff=ar[b];
     seg[a].ans=ar[b];
     seg[a].sum=ar[b];
+
 }
+
 //plese dry run on paper for better understanding the function of comb.
 /*the idea is 
   1. use prefix and suffix value for best subarray .
   2.sum store the entire array  sum.
   than take the best possible answer.
 */
+
 void comb(int pos)       
 {
 seg[pos].sum = (seg[2*pos+1].sum+seg[2*pos+2].sum);
@@ -30,6 +34,7 @@ seg[pos].ans = max(max(seg[2*pos+1].ans,seg[2*pos+2].ans),seg[2*pos+2].pre+seg[2
  
 }
 void build(int l,int h,int pos)
+
 {
  
     if( l==h)
